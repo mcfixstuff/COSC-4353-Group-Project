@@ -16,9 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-
+from admin_panel.views import show_login_page
 
 urlpatterns = [
-    path("admin/", include("admin_panel.urls")),# Custom admin panel
-
+    path('admin/', admin.site.urls),  # Django Admin
+    path('', show_login_page, name='login'),  # Make '/' go to the login page
 ]
